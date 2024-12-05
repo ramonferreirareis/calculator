@@ -24,3 +24,10 @@ function operate() {
     if (operator === "x") multiply(firstNumber, secondNumber);
     if (operator === "÷") divide(firstNumber, secondNumber);
 }
+
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll(".numbers");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => display.textContent = button.textContent);
+});

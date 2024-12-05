@@ -37,5 +37,10 @@ buttons.forEach(button => {
 });
 
 operators.forEach(operator => {
-    operator.addEventListener("click", () => display.textContent += operator.textContent);
+    operator.addEventListener('click', () => {
+        if(display.textContent !== '') {
+            firstNumber = display.textContent;
+        }
+        display.textContent += operator.textContent;
+    });
 });

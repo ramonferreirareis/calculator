@@ -27,7 +27,15 @@ function operate() {
 
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".numbers");
+const operators = document.querySelectorAll(".operators");
+const clearDisplay = document.querySelector("#clear");
+
+clearDisplay.addEventListener("click", () => display.textContent = '');
 
 buttons.forEach(button => {
-    button.addEventListener("click", () => display.textContent = button.textContent);
+    button.addEventListener("click", () => display.textContent += button.textContent);
+});
+
+operators.forEach(operator => {
+    operator.addEventListener("click", () => display.textContent += operator.textContent);
 });

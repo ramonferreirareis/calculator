@@ -1,6 +1,6 @@
-let firstNumber = '0';
+let firstNumber = 0;
 let secondNumber = 0;
-let operator = "+";
+let operator = "";
 
 function add(num1, num2) {
     display.textContent = num1 + num2;
@@ -37,19 +37,17 @@ buttons.forEach(button => {
     button.addEventListener("click", () => display.textContent += button.textContent);
 });
 
-operators.forEach(operator => {
-    operator.addEventListener('click', () => {
-        display.textContent += operator.textContent;
+operators.forEach(buttonOperator => {
+    buttonOperator.addEventListener('click', () => {
+        display.textContent += buttonOperator.textContent;
+        operator = buttonOperator.textContent;
     });
 });
 
 result.addEventListener("click", () => {
-    [firstNumber, secondNumber] = display.textContent.split("+");
+    [firstNumber, secondNumber] = display.textContent.split(`${operator}`);
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
     operate();
 });
-
-
-
 

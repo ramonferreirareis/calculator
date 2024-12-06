@@ -1,5 +1,5 @@
-let firstNumber = 2;
-let secondNumber = 3;
+let firstNumber = '0';
+let secondNumber = 0;
 let operator = "+";
 
 function add(num1, num2) {
@@ -29,6 +29,7 @@ const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 const clearDisplay = document.querySelector("#clear");
+const result = document.querySelector("#result");
 
 clearDisplay.addEventListener("click", () => display.textContent = '');
 
@@ -38,9 +39,16 @@ buttons.forEach(button => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
-        if(display.textContent !== '') {
-            firstNumber = display.textContent;
-        }
         display.textContent += operator.textContent;
     });
 });
+
+result.addEventListener("click", () => {
+    [firstNumber, secondNumber] = display.textContent.split("+");
+    firstNumber = Number(firstNumber);
+    secondNumber = Number(secondNumber);
+});
+
+
+
+

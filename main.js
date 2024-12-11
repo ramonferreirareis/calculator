@@ -1,6 +1,7 @@
 let firstNumber = 0;
 let secondNumber = 0;
 let operator = "";
+let noOperator = true;
 
 function add(num1, num2) {
     display.textContent = num1 + num2;
@@ -39,8 +40,11 @@ buttons.forEach(button => {
 
 operators.forEach(buttonOperator => {
     buttonOperator.addEventListener('click', () => {
-        display.textContent += buttonOperator.textContent;
         operator = buttonOperator.textContent;
+        if (noOperator) {
+            display.textContent += buttonOperator.textContent;
+            return noOperator = false;
+        }
     });
 });
 
@@ -49,5 +53,6 @@ result.addEventListener("click", () => {
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
     operate();
+    noOperator = true;
 });
 

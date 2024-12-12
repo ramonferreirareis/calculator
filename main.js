@@ -31,6 +31,9 @@ const buttons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
 const clearDisplay = document.querySelector("#clear");
 const result = document.querySelector("#result");
+const backspace = document.querySelector("#delete");
+
+backspace.addEventListener("click", () => display.textContent = display.textContent.substring(0, display.textContent.length - 1));
 
 clearDisplay.addEventListener("click", () => display.textContent = '');
 
@@ -45,8 +48,21 @@ operators.forEach(buttonOperator => {
             display.textContent += buttonOperator.textContent;
             return noOperator = false;
         }
+        // } else {
+        //     operation();
+        //     display.textContent += buttonOperator.textContent;
+        //     return noOperator = false;
+        // }
     });
 });
+
+// function operation() {
+//     [firstNumber, secondNumber] = display.textContent.split(`${operator}`);
+//     firstNumber = Number(firstNumber);
+//     secondNumber = Number(secondNumber);
+//     operate();
+//     noOperator = true;
+// }
 
 result.addEventListener("click", () => {
     [firstNumber, secondNumber] = display.textContent.split(`${operator}`);

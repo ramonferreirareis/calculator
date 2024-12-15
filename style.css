@@ -1,0 +1,31 @@
+:root {
+    --blue_bg:#3b4664;
+    --blue_btn:#647299;
+    --blue_btn_active:#a2b3e1; 
+    --blue_dark:#181f32;
+    --blue_dark_btn:#252d44;
+    --white_btn: #eae3db;
+    --white_btn_active: #ffffff;
+    --red_btn:#d13f30;
+    --red_btn_active:#f96c5b;
+}
+
+body {
+    background-color: var(--blue_btn);
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 600px;
+    width: 400px;
+    border: 1px solid darkblue;
+}
+
+.display {
+    background-color: var(--blue_dark);
+}

@@ -33,7 +33,10 @@ const clearDisplay = document.querySelector("#clear");
 const result = document.querySelector("#result");
 const backspace = document.querySelector("#delete");
 
-backspace.addEventListener("click", () => display.textContent = display.textContent.substring(0, display.textContent.length - 1));
+backspace.addEventListener("click", () => {
+    const operators = ["+", "-", "x", "÷"];
+    
+    display.textContent = display.textContent.substring(0, display.textContent.length - 1)});
 
 clearDisplay.addEventListener("click", () => display.textContent = '');
 

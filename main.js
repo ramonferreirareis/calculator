@@ -26,6 +26,14 @@ function operate() {
     if (operator === "÷") divide(firstNumber, secondNumber);
 }
 
+function reset() {
+    firstNumber = 0;
+    secondNumber = 0;
+    operator = "";
+    display.textContent = '0';
+    noOperator = true;
+}
+
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
@@ -38,10 +46,7 @@ backspace.addEventListener("click", () => {
     
     display.textContent = display.textContent.substring(0, display.textContent.length - 1)});
 
-clearDisplay.addEventListener("click", () => {
-    display.textContent = ''
-    noOperator = true;
-});
+clearDisplay.addEventListener("click", reset);
 
 buttons.forEach(button => {
     button.addEventListener("click", () => display.textContent += button.textContent);
@@ -75,7 +80,7 @@ function operation() {
         alert("This doesn't work");
         secondNumber = 1;
     }
-    
+
     operate();
     noOperator = true;
 }

@@ -49,12 +49,13 @@ buttons.forEach(button => {
 
 operators.forEach(buttonOperator => {
     buttonOperator.addEventListener('click', () => {
-        operator = buttonOperator.textContent;
         if (noOperator) {
+            operator = buttonOperator.textContent;
             display.textContent += buttonOperator.textContent;
             return noOperator = false;
         } else {
             operation();
+            operator = buttonOperator.textContent;
             display.textContent += buttonOperator.textContent;
             return noOperator = false;
         }

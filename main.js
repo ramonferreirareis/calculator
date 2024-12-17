@@ -66,6 +66,10 @@ function operation() {
     [firstNumber, secondNumber] = display.textContent.split(`${operator}`);
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
+
+    if (isNaN(secondNumber)) {
+        secondNumber = 0;
+    }
     operate();
     noOperator = true;
 }

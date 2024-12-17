@@ -70,6 +70,12 @@ function operation() {
     if (isNaN(secondNumber)) {
         secondNumber = 0;
     }
+
+    if (operator === "÷" && secondNumber === 0) {
+        alert("This doesn't work");
+        secondNumber = 1;
+    }
+    
     operate();
     noOperator = true;
 }

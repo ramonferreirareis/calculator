@@ -54,7 +54,9 @@ buttons.forEach(button => {
 
 operators.forEach(buttonOperator => {
     buttonOperator.addEventListener('click', () => {
-        if (noOperator) {
+        if (display.textContent === "") {
+            alert("This doesn't work");
+        } else if (noOperator) {
             operator = buttonOperator.textContent;
             display.textContent += buttonOperator.textContent;
             return noOperator = false;

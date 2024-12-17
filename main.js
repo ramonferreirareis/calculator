@@ -38,7 +38,10 @@ backspace.addEventListener("click", () => {
     
     display.textContent = display.textContent.substring(0, display.textContent.length - 1)});
 
-clearDisplay.addEventListener("click", () => display.textContent = '');
+clearDisplay.addEventListener("click", () => {
+    display.textContent = ''
+    noOperator = true;
+});
 
 buttons.forEach(button => {
     button.addEventListener("click", () => display.textContent += button.textContent);
@@ -50,28 +53,21 @@ operators.forEach(buttonOperator => {
         if (noOperator) {
             display.textContent += buttonOperator.textContent;
             return noOperator = false;
+        } else {
+            operation();
+            display.textContent += buttonOperator.textContent;
+            return noOperator = false;
         }
-        // } else {
-        //     operation();
-        //     display.textContent += buttonOperator.textContent;
-        //     return noOperator = false;
-        // }
     });
 });
 
-// function operation() {
-//     [firstNumber, secondNumber] = display.textContent.split(`${operator}`);
-//     firstNumber = Number(firstNumber);
-//     secondNumber = Number(secondNumber);
-//     operate();
-//     noOperator = true;
-// }
-
-result.addEventListener("click", () => {
+function operation() {
     [firstNumber, secondNumber] = display.textContent.split(`${operator}`);
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
     operate();
     noOperator = true;
-});
+}
+
+result.addEventListener("click", operation);
 

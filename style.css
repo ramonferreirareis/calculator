@@ -28,4 +28,5 @@ body {
 
 .display {
     background-color: var(--blue_dark);
+    color: var(--white_btn);
 }

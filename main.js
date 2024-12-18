@@ -49,7 +49,16 @@ backspace.addEventListener("click", () => {
 clearDisplay.addEventListener("click", reset);
 
 buttons.forEach(button => {
-    button.addEventListener("click", () => display.textContent += button.textContent);
+    button.addEventListener("click", () => {
+        if (display.textContent === '0' && button.textContent === '0') {
+            display.textContent = '0';
+        } else if (display.textContent === '0' && button.textContent !== '0') {
+            display.textContent = '';
+            display.textContent += button.textContent;
+        } else if (display.textContent !== '0'){
+            display.textContent += button.textContent;
+        }
+    });
 });
 
 operators.forEach(buttonOperator => {

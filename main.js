@@ -40,13 +40,25 @@ const operators = document.querySelectorAll(".operators");
 const clearDisplay = document.querySelector("#clear");
 const result = document.querySelector("#result");
 const backspace = document.querySelector("#delete");
+const dotDecimal = document.querySelector("#dot");
 
 backspace.addEventListener("click", () => {
-    const operators = ["+", "-", "x", "÷"];
-    
-    display.textContent = display.textContent.substring(0, display.textContent.length - 1)});
+    if (display.textContent === '0' || display.textContent === '') {
+        display.textContent = '0';
+    } else {
+        display.textContent = display.textContent.substring(0, display.textContent.length - 1)
+    }
+});
 
 clearDisplay.addEventListener("click", reset);
+
+dotDecimal.addEventListener("click", () => {
+    if (display.textContent === "") {
+        display.textContent = "";
+    } else {
+        display.textContent += dotDecimal.textContent;
+    }
+});
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -55,7 +67,7 @@ buttons.forEach(button => {
         } else if (display.textContent === '0' && button.textContent !== '0') {
             display.textContent = '';
             display.textContent += button.textContent;
-        } else if (display.textContent !== '0'){
+        } else {
             display.textContent += button.textContent;
         }
     });
@@ -64,7 +76,7 @@ buttons.forEach(button => {
 operators.forEach(buttonOperator => {
     buttonOperator.addEventListener('click', () => {
         if (display.textContent === "") {
-            alert("This doesn't work");
+            display.textContent = "";
         } else if (noOperator) {
             operator = buttonOperator.textContent;
             display.textContent += buttonOperator.textContent;

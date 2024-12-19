@@ -10,10 +10,17 @@
     --red_btn_active:#f96c5b;
 }
 
+* {
+    padding: 0;
+    border: 0;
+}
+
 body {
     background-color: var(--blue_btn);
     display: flex;
     justify-content: center;
+
+    font-size: 32px;
 }
 
 .calculator {
@@ -24,9 +31,38 @@ body {
     height: 600px;
     width: 400px;
     border: 1px solid darkblue;
+    gap: 15px;
 }
 
 .display {
     background-color: var(--blue_dark);
     color: var(--white_btn);
+    width: 100%;
+    height: 100px;
+
+    border-radius: 10px;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.buttons .row {
+    display: flex;
+    gap: 10px;
+
+}
+
+.row button {
+    flex: 1;
+    height: 70px;
+
+}
+
+button {
+    font-size: 32px;;
 }

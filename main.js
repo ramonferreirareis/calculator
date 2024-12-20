@@ -99,7 +99,7 @@ function operation() {
         secondNumber = 0;
     }
 
-    if (operator === "÷" && secondNumber === 0) {
+    if (operator === "÷" && (firstNumber === 0 || secondNumber === 0)) {
         alert("This doesn't work");
         secondNumber = 1;
     }

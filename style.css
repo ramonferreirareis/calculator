@@ -2,12 +2,15 @@
     --blue_bg:#3b4664;
     --blue_btn:#647299;
     --blue_btn_active:#a2b3e1; 
+    --blue_btn_shadow: #414e71;
     --blue_dark:#181f32;
     --blue_dark_btn:#252d44;
     --white_btn: #eae3db;
     --white_btn_active: #ffffff;
+    --white_btn_shadow:#b2a296;
     --red_btn:#d13f30;
     --red_btn_active:#f96c5b;
+    --red_btn_shadow: #94261b;
 }
 
 * {
@@ -46,7 +49,9 @@ body {
 }
 
 .display {
-    color: var(--white_btn);
+    color: var(--white_btn_active);
+    font-size: 50px;;
+    margin-right: 30px;
 }
 
 .buttons {
@@ -55,6 +60,7 @@ body {
     flex-direction: column;
     background-color: var(--blue_dark_btn);
     border-radius: 5px;
+    
 }
 
 .buttons .row {
@@ -64,7 +70,8 @@ body {
 .row button {
     flex: 1;
     height: 50px;
-    
+    border-bottom: 3px solid var(--white_btn_shadow);
+    color: var(--blue_dark_btn)
 }
 
 button {
@@ -72,4 +79,16 @@ button {
     margin: 10px;
     border-radius: 10px;
     background-color: var(--white_btn);
+}
+
+.row .red-btn {
+    background-color: var(--red_btn);
+    border-bottom: 3px solid var(--red_btn_shadow);
+    color: var(--white_btn);
+}
+
+.row .blue-btn {
+    background-color: var(--blue_btn);
+    border-bottom: 3px solid var(--blue_btn_shadow);
+    color: var(--white_btn);
 }

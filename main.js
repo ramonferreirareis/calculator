@@ -34,6 +34,14 @@ function reset() {
     noOperator = true;
 }
 
+function backspaceErase() {
+    if (display.textContent === '0' || display.textContent === '') {
+        display.textContent = '0';
+    } else {
+        display.textContent = display.textContent.substring(0, display.textContent.length - 1)
+    }
+}
+
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".numbers");
 const operators = document.querySelectorAll(".operators");
@@ -42,13 +50,7 @@ const result = document.querySelector("#result");
 const backspace = document.querySelector("#delete");
 const dotDecimal = document.querySelector("#dot");
 
-backspace.addEventListener("click", () => {
-    if (display.textContent === '0' || display.textContent === '') {
-        display.textContent = '0';
-    } else {
-        display.textContent = display.textContent.substring(0, display.textContent.length - 1)
-    }
-});
+backspace.addEventListener("click", backspaceErase);
 
 clearDisplay.addEventListener("click", reset);
 
@@ -110,3 +112,10 @@ function operation() {
 
 result.addEventListener("click", operation);
 
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape' ) {reset()};
+    if(event.key === 'Backspace') {backspaceErase()};
+    if(event.key === '=') {operation()};
+})
+
+// document.addEventListener('keydown', e => console.log(e));
